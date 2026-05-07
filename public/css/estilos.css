@@ -1,0 +1,291 @@
+/* =========================================
+   ESTILOS GENERALES Y BASE
+   ========================================= */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: linear-gradient(135deg, #003791 0%, #001233 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.container { max-width: 1200px; margin: 0 auto; flex: 1; }
+
+/* =========================================
+   HEADER, LOGO Y NAVEGACIÓN
+   ========================================= */
+.header-principal {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 3px solid #0070cc;
+    border-radius: 10px;
+}
+
+.titulo-contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.titulo-contenedor img {
+    height: 40px; /* Tamaño del logo */
+}
+
+.header-principal h1 { color: #ffffff; letter-spacing: 2px; }
+
+.navegacion-principal ul {
+    list-style: none; display: flex; justify-content: center; gap: 20px; margin-top: 15px; flex-wrap: wrap;
+}
+
+.navegacion-principal a {
+    color: white; text-decoration: none; font-weight: bold; padding: 8px 20px; border-radius: 20px; transition: 0.3s;
+}
+
+.navegacion-principal a:hover, .navegacion-principal a.activo {
+    background: #0070cc; color: white;
+}
+
+/* =========================================
+   SECCIONES Y TARJETAS
+   ========================================= */
+.seccion-principal, .card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.seccion-principal h2, h3 { margin-bottom: 15px; color: #00a2ff; }
+
+/* =========================================
+   BOTONES
+   ========================================= */
+.boton {
+    background: #0070cc; color: white; border: none; padding: 10px 20px; border-radius: 25px; cursor: pointer; text-decoration: none; font-weight: bold; display: inline-block;
+}
+.boton:hover { background: #005bb5; }
+.boton-rojo { background: #e60000; }
+.boton-rojo:hover { background: #b30000; }
+
+#btnVolverArriba, .boton-modo {
+    position: fixed; bottom: 30px; width: 50px; height: 50px; border-radius: 50%; border: none; cursor: pointer; background: #0070cc; color: white; font-size: 20px; z-index: 1000;
+}
+#btnVolverArriba { right: 30px; display: none; }
+.boton-modo { left: 30px; }
+
+body.modo-oscuro { background: #0a0a0a; }
+body.modo-oscuro .header-principal, body.modo-oscuro .footer-principal { background: #000; border-color: #00a2ff; }
+
+/* =========================================
+   FOOTER (Pie de página)
+   ========================================= */
+.footer-principal {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    border-top: 3px solid #0070cc;
+    border-radius: 10px;
+    margin-top: 40px;
+    font-size: 0.9em;
+    color: #ccc;
+}
+
+/* =========================================
+   MULTIMEDIA: GALERÍA Y DETALLES
+   ========================================= */
+.galeria-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 25px; margin-top: 30px;
+}
+.juego-card {
+    background: rgba(0, 0, 0, 0.6); border: 1px solid rgba(0, 162, 255, 0.3); border-radius: 12px; padding: 15px; text-align: center; cursor: pointer; transition: 0.3s ease;
+}
+.juego-card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0, 162, 255, 0.3); border-color: #00a2ff; }
+.juego-card img { width: 100%; height: 280px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; }
+
+/* Vista Detalle Oculta */
+.detalle-juego-contenedor {
+    background: rgba(0,0,0,0.7);
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid #00a2ff;
+    text-align: center;
+}
+.detalle-juego-contenedor img {
+    max-width: 300px; border-radius: 10px; box-shadow: 0 5px 15px #00a2ff; margin-bottom: 20px;
+}
+.trailers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 30px; }
+.trailer-box { background: rgba(0, 0, 0, 0.5); padding: 20px; border-radius: 15px; border-top: 3px solid #0070cc; text-align: center; }
+
+/* =========================================
+   HISTORIA (Línea de tiempo)
+   ========================================= */
+.timeline-item { display: flex; gap: 20px; margin-bottom: 40px; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 20px; }
+.timeline-item img { width: 350px; height: 250px; object-fit: cover; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.6); flex-shrink: 0; }
+@media (max-width: 768px) { .timeline-item { flex-direction: column; text-align: center; } .timeline-item img { width: 100%; height: auto; } }
+
+/* =========================================
+   NUEVOS ESTILOS: FORMULARIO EN LISTA Y ALERTAS
+   ========================================= */
+.formulario-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid #00a2ff;
+}
+
+.grupo-campo label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #00a2ff;
+}
+
+.grupo-campo input, .grupo-campo select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.9);
+    color: #333;
+    font-size: 16px;
+}
+
+.alerta-error {
+    background: rgba(255, 0, 0, 0.2);
+    color: #ff4d4d;
+    padding: 10px;
+    border-radius: 8px;
+    border-left: 5px solid #ff4d4d;
+    margin-bottom: 15px;
+    display: none;
+    font-weight: bold;
+}
+
+.alerta-exito {
+    background: rgba(0, 255, 0, 0.2);
+    color: #00ff00;
+    padding: 10px;
+    border-radius: 8px;
+    border-left: 5px solid #00ff00;
+    margin-bottom: 15px;
+    display: none;
+    font-weight: bold;
+}
+/* =========================================
+   NUEVOS ESTILOS: TABLAS MEJORADAS
+   ========================================= */
+.tabla-comparativa {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    overflow: hidden; /* Para que los bordes redondeados se vean */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.tabla-comparativa th {
+    background: #003791;
+    color: white;
+    padding: 15px;
+    font-size: 1.1em;
+    text-align: left;
+    border-bottom: 2px solid #00a2ff;
+}
+
+.tabla-comparativa td {
+    padding: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: #e0e0e0;
+}
+
+/* Efecto cebra para las filas */
+.tabla-comparativa tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.tabla-comparativa tr:hover {
+    background: rgba(0, 162, 255, 0.2);
+    transition: 0.3s ease;
+}
+
+/* =========================================
+   ESTILOS PARA PESTAÑAS (CRUD)
+   ========================================= */
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    border-bottom: 2px solid rgba(255,255,255,0.2);
+    padding-bottom: 10px;
+}
+
+.tab-btn {
+    background: rgba(255,255,255,0.1);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 10px 24px;
+    border-radius: 8px 8px 0 0;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.tab-btn:hover {
+    background: rgba(0, 162, 255, 0.3);
+}
+
+.tab-btn.activo {
+    background: #0070cc;
+    color: white;
+    border-color: #0070cc;
+}
+
+.tab-panel {
+    display: none;
+}
+
+.tab-panel.activo {
+    display: block;
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Formularios dentro del CRUD */
+.formulario-crud {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border-left: 4px solid #00a2ff;
+}
+
+.fila-form {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.campo-form {
+    flex: 1;
+    min-width: 200px;
+}

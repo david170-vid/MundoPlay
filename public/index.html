@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>PlayStation | Inicio</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <header class="header-principal">
+        <div class="titulo-contenedor">
+            <img src="img/ps_logo.png" alt="Logo PS">
+            <h1>PLAYSTATION UNIVERSE</h1>
+        </div>
+        <nav class="navegacion-principal">
+            <ul>
+                <li><a href="index.html" class="activo">INICIO</a></li>
+                <li><a href="historia.html">HISTORIA</a></li>
+                <li><a href="tabla.html">TABLA & QUIZ</a></li>
+                <li><a href="formulario.html">REGISTRO</a></li>
+                <li><a href="multimedia.html">MULTIMEDIA</a></li>
+                <li><a href="crud-completo.html">CRUD</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main class="seccion-principal">
+            
+            <!-- INFORMACIÓN DEL PROYECTO ESCOLAR -->
+            <section style="background: rgba(0, 162, 255, 0.1); padding: 20px; border-radius: 10px; border-left: 5px solid #00a2ff; margin-bottom: 30px;">
+                <h2 style="margin-bottom: 5px;">🎮 Sobre este Proyecto Escolar</h2>
+                <p>Esta página fue creada como un <strong>proyecto académico</strong> pensado especialmente para los amantes de los videojuegos y fanáticos de PlayStation. Nuestro objetivo es formar una <strong>comunidad unida</strong> donde podamos compartir experiencias, ayudarnos con trucos y celebrar nuestra pasión por el gaming.</p>
+            </section>
+
+            <h2>El juego no tiene límites</h2>
+            <nav style="margin-bottom: 20px;">
+                <strong>Navegación Interna:</strong>
+                <a href="#descargas" style="color: #00a2ff; margin: 0 10px;">Manuales</a>
+                <a href="#comunidad" style="color: #00a2ff; margin: 0 10px;">Comunidad</a>
+            </nav>
+
+            <p>Descubre el poder de las consolas de próxima generación. Ya sea que vengas de una PS4 o estés listo para dar el salto, el ecosistema de Sony tiene aventuras épicas listas para ti.</p>
+
+            <section id="descargas" style="margin-top: 30px;">
+                <h3>Manuales y Soporte Oficial</h3>
+                <p>Para configurar tu consola o buscar solución a problemas técnicos, visita el portal oficial de soporte de Sony:</p>
+                <!-- Enlace externo con advertencia -->
+                <a href="https://www.playstation.com/es-mx/support/hardware/" class="boton link-externo" style="margin-top: 10px;">🌐 Ir a Soporte Oficial PlayStation</a>
+            </section>
+
+            <section id="comunidad" style="margin-top: 40px;">
+                <h3>Muro de la Comunidad</h3>
+                <p style="margin-bottom: 10px; font-size: 0.9em; color: #ccc;">¡Deja un consejo o dinos qué estás jugando para apoyar a otros gamers!</p>
+                <input type="text" id="nuevoComentario" placeholder="Ej: Para vencer a las Valquirias en GoW, usen ataques rúnicos...">
+                <button id="agregarComentario" class="boton">Comentar en el muro</button>
+                <ul id="listaComentarios" style="margin-top: 15px; list-style: none; padding: 15px; background: rgba(0,0,0,0.4); border-radius: 10px;">
+                    <li>¡Terminando el DLC de God of War Ragnarök! Está increíble. <button onclick="this.parentElement.remove()" style="color:red; background:none; border:none; cursor:pointer;">❌</button></li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <!-- FOOTER AÑADIDO -->
+    <footer class="footer-principal">
+        <p>🎓 Creado y desarrollado por Joal David Sánchez Vidal.</p>
+        <p>Comunidad para Gamers de PlayStation - 2026</p>
+    </footer>
+
+    <button id="btnModoOscuro" class="boton-modo">🌙</button>
+    <button id="btnVolverArriba">⬆️</button>
+    <script src="script.js"></script>
+</body>
+</html>

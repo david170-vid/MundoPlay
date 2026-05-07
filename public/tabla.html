@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>PlayStation | Comparativa y Quiz</title>
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        .pregunta-quiz { margin-bottom: 20px; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 10px; border-left: 4px solid #0070cc; }
+        .pregunta-quiz p { margin-bottom: 10px; font-weight: bold; color: #ffffff; font-size: 1.1em; }
+        .pregunta-quiz label { display: block; margin-bottom: 8px; cursor: pointer; color: #ccc; }
+        .pregunta-quiz input[type="radio"] { width: auto; margin-right: 10px; display: inline-block; }
+    </style>
+</head>
+<body>
+    <header class="header-principal">
+        <div class="titulo-contenedor">
+            <img src="img/ps_logo.png" alt="Logo PS">
+            <h1>PLAYSTATION UNIVERSE</h1>
+        </div>
+        <nav class="navegacion-principal">
+            <ul>
+                <li><a href="index.html">INICIO</a></li>
+                <li><a href="historia.html">HISTORIA</a></li>
+                <li><a href="tabla.html" class="activo">TABLA & QUIZ</a></li>
+                <li><a href="formulario.html">REGISTRO</a></li>
+                <li><a href="multimedia.html">MULTIMEDIA</a></li>
+                <li><a href="crud-completo.html">CRUD</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main class="seccion-principal">
+            <h2>Comparativa: La Familia PS5</h2>
+            <p style="margin-bottom: 20px;">Conoce las diferencias técnicas y precios entre los modelos actuales de la actual generación.</p>
+            
+            <table class="tabla-comparativa">
+                <tr>
+                    <th>Característica</th>
+                    <th>PS5 Fat (Original)</th>
+                    <th>PS5 Slim</th>
+                    <th>PS5 Pro</th>
+                </tr>
+                <tr>
+                    <td>Lanzamiento</td>
+                    <td>Noviembre 2020</td>
+                    <td>Noviembre 2023</td>
+                    <td>Noviembre 2024</td>
+                </tr>
+                <tr>
+                    <td>Almacenamiento</td>
+                    <td>825GB SSD</td>
+                    <td>1TB SSD</td>
+                    <td>2TB SSD</td>
+                </tr>
+                <tr>
+                    <td>Rendimiento (GPU)</td>
+                    <td>10.3 TFLOPS</td>
+                    <td>10.3 TFLOPS</td>
+                    <td>16.7 TFLOPS + PSSR</td>
+                </tr>
+                <tr>
+                    <td>Unidad de Disco</td>
+                    <td>Fija (o edición sin disco)</td>
+                    <td>Extraíble / Acoplable</td>
+                    <td>No incluida (se vende aparte)</td>
+                </tr>
+                <tr>
+                    <td>Precio Estimado</td>
+                    <td>$499 USD (Descontinuada)</td>
+                    <td>$499 USD</td>
+                    <td>$699 USD</td>
+                </tr>
+            </table>
+
+            <hr style="border: 1px solid rgba(255,255,255,0.2); margin: 50px 0;">
+
+            <h2>El Gran Desafío PlayStation (10 Preguntas)</h2>
+            
+            <div id="avisoQuizInvitado" class="alerta-error" style="display: block;">
+                <p>⚠️ <strong>Nota:</strong> No estás registrado. Debes iniciar sesión para que tu puntuación se guarde en nuestra base de datos.</p>
+            </div>
+            
+            <p style="margin-bottom: 20px;">Demuestra qué tan fanático eres. Responde estas 10 preguntas y evalúa tu conocimiento.</p>
+            
+            <form id="formQuiz10">
+                <div class="pregunta-quiz">
+                    <p>1. ¿En qué año se lanzó la primera PlayStation en Japón?</p>
+                    <label><input type="radio" name="q1" value="0" required> 1993</label>
+                    <label><input type="radio" name="q1" value="1"> 1994</label>
+                    <label><input type="radio" name="q1" value="0"> 1995</label>
+                </div>
+                <div class="pregunta-quiz">
+                    <p>2. ¿Cuál es la consola de sobremesa más vendida de todos los tiempos?</p>
+                    <label><input type="radio" name="q2" value="1" required> PlayStation 2</label>
+                    <label><input type="radio" name="q2" value="0"> PlayStation 4</label>
+                    <label><input type="radio" name="q2" value="0"> Nintendo Wii</label>
+                </div>
+                <div class="pregunta-quiz">
+                    <p>3. ¿Con qué compañía iba a aliarse Sony antes de crear la PS1 en solitario?</p>
+                    <label><input type="radio" name="q3" value="0" required> SEGA</label>
+                    <label><input type="radio" name="q3" value="0"> Microsoft</label>
+                    <label><input type="radio" name="q3" value="1"> Nintendo</label>
+                </div>
+                <div class="pregunta-quiz">
+                    <p>4. ¿Cómo se llama el Dios de la Guerra protagonista de God of War?</p>
+                    <label><input type="radio" name="q4" value="0" required> Ares</label>
+                    <label><input type="radio" name="q4" value="1"> Kratos</label>
+                    <label><input type="radio" name="q4" value="0"> Zeus</label>
+                </div>
+                <div class="pregunta-quiz">
+                    <p>5. ¿Qué significa "PSSR" en la nueva PS5 Pro?</p>
+                    <label><input type="radio" name="q5" value="0" required> PlayStation Super Resolution</label>
+                    <label><input type="radio" name="q5" value="1"> PlayStation Spectral Super Resolution</label>
+                    <label><input type="radio" name="q5" value="0"> Pro System Rendering</label>
+                </div>
+                <div class="pregunta-quiz">
+                    <p>6. ¿Cuál es el nombre del control oficial de la PlayStation 5?</p>
+                    <label><input type="radio" name="q6" value="0" required> DualShock 5</label>
+                    <label><input type="radio" name="q6" value="1"> DualSense</label>
+                    <label><input type="radio" name="q6" value="0"> PlayStation Pro Controller</label>
+                </div>
+                <div class="pregunta-quiz">
+                    <p>7. ¿Qué estudio desarrolló las sagas de Uncharted y The Last of Us?</p>
+                    <label><input type="radio" name="q7" value="0" required> Insomniac Games</label>
+                    <label><input type="radio" name="q7" value="1"> Naughty Dog</label>
+                    <label><input type="radio" name="q7" value="0"> Santa Monica Studio</label>
+                </div>
+                <div class="pregunta-quiz">
+                    <p>8. El botón "Share" (Compartir) se introdujo por primera vez en el control de la:</p>
+                    <label><input type="radio" name="q8" value="0" required> PS3</label>
+                    <label><input type="radio" name="q8" value="1"> PS4</label>
+                    <label><input type="radio" name="q8" value="0"> PS5</label>
+                </div>
+                <div class="pregunta-quiz">
+                    <p>9. ¿Cuál fue el juego gratuito preinstalado en la PS5 para probar el control?</p>
+                    <label><input type="radio" name="q9" value="0" required> Demon's Souls</label>
+                    <label><input type="radio" name="q9" value="0"> Returnal</label>
+                    <label><input type="radio" name="q9" value="1"> Astro's Playroom</label>
+                </div>
+                <div class="pregunta-quiz">
+                    <p>10. ¿Qué formato de disco introdujo la PlayStation 3 al mercado?</p>
+                    <label><input type="radio" name="q10" value="0" required> DVD</label>
+                    <label><input type="radio" name="q10" value="1"> Blu-ray</label>
+                    <label><input type="radio" name="q10" value="0"> HD-DVD</label>
+                </div>
+
+                <button type="submit" class="boton" style="width: 100%; font-size: 1.2em; padding: 15px;">Evaluar y Guardar Puntaje</button>
+            </form>
+            
+            <div id="resultadoQuiz" class="alerta-exito" style="margin-top: 20px; text-align: center; font-size: 1.2em;"></div>
+        </main>
+    </div>
+    
+    <footer class="footer-principal">
+        <p>🎓 Creado y desarrollado por Joal David Sánchez Vidal.</p>
+        <p>Comunidad para Gamers de PlayStation - 2026</p>
+    </footer>
+
+    <button id="btnModoOscuro" class="boton-modo">🌙</button>
+    <button id="btnVolverArriba">⬆️</button>
+    <script src="script.js"></script>
+</body>
+</html>

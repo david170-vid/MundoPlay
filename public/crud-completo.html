@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>PlayStation | CRUD Admin</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <header class="header-principal">
+        <div class="titulo-contenedor">
+            <img src="img/ps_logo.png" alt="Logo PS">
+            <h1>PLAYSTATION UNIVERSE</h1>
+        </div>
+        <nav class="navegacion-principal">
+            <ul>
+                <li><a href="index.html">INICIO</a></li>
+                <li><a href="historia.html">HISTORIA</a></li>
+                <li><a href="tabla.html">TABLA & QUIZ</a></li>
+                <li><a href="formulario.html">REGISTRO</a></li>
+                <li><a href="multimedia.html">MULTIMEDIA</a></li>
+                <li><a href="crud-completo.html" class="activo">CRUD</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main class="seccion-principal">
+            <h2>Panel de Administración</h2>
+            <p style="margin-bottom: 20px;">Gestiona el catálogo de juegos y los usuarios registrados en la plataforma.</p>
+
+            <div id="mensajeAlerta" style="display: none; padding: 10px; margin-bottom: 15px; border-radius: 5px; font-weight: bold;"></div>
+
+            <!-- Botones de Pestañas -->
+            <div class="tabs">
+                <button class="tab-btn activo" data-tab="juegos">🎮 Gestión de Juegos</button>
+                <button class="tab-btn" data-tab="usuarios">👥 Gestión de Usuarios</button>
+            </div>
+
+            <!-- PESTAÑA: JUEGOS -->
+            <div id="tab-juegos" class="tab-panel activo">
+                <div class="formulario-crud">
+                    <h3 id="juegoFormTitulo">Añadir Nuevo Juego</h3>
+                    <form id="formJuegos" class="fila-form">
+                        <input type="hidden" id="juegoId">
+                        <div class="campo-form">
+                            <label>Título:</label>
+                            <input type="text" id="juegoTitulo" required placeholder="Ej: Bloodborne">
+                        </div>
+                        <div class="campo-form">
+                            <label>Género:</label>
+                            <input type="text" id="juegoGenero" required placeholder="Ej: RPG de acción">
+                        </div>
+                        <div class="campo-form">
+                            <label>Plataforma:</label>
+                            <input type="text" id="juegoPlataforma" required placeholder="Ej: PS4">
+                        </div>
+                        <div class="campo-form" style="display: flex; align-items: flex-end; gap: 10px;">
+                            <button type="submit" id="btnGuardarJuego" class="boton" style="flex: 1;">Guardar Juego</button>
+                            <button type="button" id="btnCancelarJuego" class="boton boton-rojo" style="display: none;">Cancelar</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                    <h3>Inventario Actual</h3>
+                    <button class="boton" onclick="cargarJuegos()" style="padding: 5px 15px; font-size: 0.9em;">🔄 Refrescar</button>
+                </div>
+                <div style="overflow-x: auto;">
+                    <table class="tabla-comparativa">
+                        <thead>
+                            <tr>
+                                <th>Título</th>
+                                <th>Género</th>
+                                <th>Plataforma</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="listaJuegosBd">
+                            <!-- Los juegos se cargarán aquí -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- PESTAÑA: USUARIOS -->
+            <div id="tab-usuarios" class="tab-panel">
+                <div class="formulario-crud" style="border-left-color: #28a745;">
+                    <h3 id="userFormTitulo">Añadir Nuevo Usuario</h3>
+                    <form id="formUsuarios" class="fila-form">
+                        <input type="hidden" id="userId">
+                        <div class="campo-form">
+                            <label>PSN ID:</label>
+                            <input type="text" id="userPsnId" required placeholder="Usuario Único">
+                        </div>
+                        <div class="campo-form">
+                            <label>Correo:</label>
+                            <input type="email" id="userCorreo" required placeholder="correo@ejemplo.com">
+                        </div>
+                        <div class="campo-form">
+                            <label>Contraseña:</label>
+                            <input type="text" id="userPassword" required placeholder="Min 8 caracteres">
+                        </div>
+                        <div class="campo-form" style="display: flex; align-items: flex-end; gap: 10px;">
+                            <button type="submit" id="btnGuardarUsuario" class="boton" style="flex: 1; background: #28a745;">Guardar Usuario</button>
+                            <button type="button" id="btnCancelarUsuario" class="boton boton-rojo" style="display: none;">Cancelar</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                    <h3>Usuarios Registrados</h3>
+                    <button class="boton" onclick="cargarUsuarios()" style="padding: 5px 15px; font-size: 0.9em;">🔄 Refrescar</button>
+                </div>
+                <div style="overflow-x: auto;">
+                    <table class="tabla-comparativa">
+                        <thead>
+                            <tr>
+                                <th>PSN ID</th>
+                                <th>Correo</th>
+                                <th>Consola</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="listaUsuariosBd">
+                            <!-- Los usuarios se cargarán aquí -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <footer class="footer-principal">
+        <p>🎓 Creado y desarrollado por: Joal David Sánchez Vidal.</p>
+        <p>Comunidad para Gamers de PlayStation - 2026</p>
+    </footer>
+
+    <button id="btnModoOscuro" class="boton-modo">🌙</button>
+    <button id="btnVolverArriba">⬆️</button>
+    
+    <!-- Lógica Específica del CRUD -->
+    <script>
+        const API_URL = 'http://localhost:3000/api';
+
+        // 1. Gestión de Pestañas
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('activo'));
+                document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('activo'));
+                
+                btn.classList.add('activo');
+                const tabId = btn.getAttribute('data-tab');
+                document.getElementById(`tab-${tabId}`).classList.add('activo');
+
+                if(tabId === 'juegos') cargarJuegos();
+                if(tabId === 'usuarios') cargarUsuarios();
+            });
+        });
+
+        // Función para mostrar alertas temporales
+        function mostrarAlerta(mensaje, esError = false) {
+            const alerta = document.getElementById('mensajeAlerta');
+            alerta.textContent = mensaje;
+            alerta.style.display = 'block';
+            alerta.style.background = esError ? 'rgba(255,0,0,0.2)' : 'rgba(0,255,0,0.2)';
+            alerta.style.color = esError ? '#ff4d4d' : '#00ff00';
+            setTimeout(() => alerta.style.display = 'none', 3000);
+        }
+
+        // ==================== LÓGICA DE JUEGOS ====================
+        let editandoJuegoId = null;
+
+        async function cargarJuegos() {
+            try {
+                const res = await fetch(`${API_URL}/juegos`);
+                const data = await res.json();
+                const tbody = document.getElementById('listaJuegosBd');
+                tbody.innerHTML = '';
+                data.juegos.forEach(j => {
+                    // Escapamos comillas simples en strings para evitar errores en onclick
+                    const titulo = j.titulo.replace(/'/g, "\\'");
+                    const genero = j.genero.replace(/'/g, "\\'");
+                    const plat = j.plataforma.replace(/'/g, "\\'");
+                    
+                    tbody.innerHTML += `
+                        <tr>
+                            <td><strong>${j.titulo}</strong></td>
+                            <td>${j.genero}</td>
+                            <td>${j.plataforma}</td>
+                            <td>
+                                <button onclick="prepararEdicionJuego('${j._id}', '${titulo}', '${genero}', '${plat}')" class="boton" style="padding: 5px 10px; font-size: 0.8em; margin-right: 5px;">✏️</button>
+                                <button onclick="eliminarJuego('${j._id}')" class="boton boton-rojo" style="padding: 5px 10px; font-size: 0.8em;">❌</button>
+                            </td>
+                        </tr>
+                    `;
+                });
+            } catch (e) { mostrarAlerta("Error al cargar juegos", true); }
+        }
+
+        document.getElementById('formJuegos').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const titulo = document.getElementById('juegoTitulo').value;
+            const genero = document.getElementById('juegoGenero').value;
+            const plataforma = document.getElementById('juegoPlataforma').value;
+
+            try {
+                if (editandoJuegoId) {
+                    // Actualizar Juego Existente (Requiere que añadas ruta PUT en server-mongo.js)
+                    await fetch(`${API_URL}/juegos/${editandoJuegoId}`, {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ titulo, genero, plataforma })
+                    });
+                    mostrarAlerta("Juego actualizado correctamente");
+                } else {
+                    // Crear Nuevo Juego
+                    await fetch(`${API_URL}/juegos`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ titulo, genero, plataforma })
+                    });
+                    mostrarAlerta("Juego añadido correctamente");
+                }
+                cancelarEdicionJuego();
+                cargarJuegos();
+            } catch (e) { mostrarAlerta("Error al guardar juego", true); }
+        });
+
+        function prepararEdicionJuego(id, titulo, genero, plataforma) {
+            editandoJuegoId = id;
+            document.getElementById('juegoTitulo').value = titulo;
+            document.getElementById('juegoGenero').value = genero;
+            document.getElementById('juegoPlataforma').value = plataforma;
+            document.getElementById('juegoFormTitulo').textContent = "✏️ Editando Juego";
+            document.getElementById('btnGuardarJuego').textContent = "Actualizar";
+            document.getElementById('btnCancelarJuego').style.display = "inline-block";
+        }
+
+        function cancelarEdicionJuego() {
+            editandoJuegoId = null;
+            document.getElementById('formJuegos').reset();
+            document.getElementById('juegoFormTitulo').textContent = "Añadir Nuevo Juego";
+            document.getElementById('btnGuardarJuego').textContent = "Guardar Juego";
+            document.getElementById('btnCancelarJuego').style.display = "none";
+        }
+        
+        document.getElementById('btnCancelarJuego').addEventListener('click', cancelarEdicionJuego);
+
+        async function eliminarJuego(id) {
+            if(confirm("¿Seguro que deseas eliminar este juego?")) {
+                await fetch(`${API_URL}/juegos/${id}`, { method: 'DELETE' });
+                mostrarAlerta("Juego eliminado");
+                cargarJuegos();
+            }
+        }
+
+        // ==================== LÓGICA DE USUARIOS ====================
+        let editandoUserId = null;
+
+        async function cargarUsuarios() {
+            try {
+                // Requiere que crees una ruta GET /api/usuarios en tu server
+                const res = await fetch(`${API_URL}/usuarios`);
+                const data = await res.json();
+                const tbody = document.getElementById('listaUsuariosBd');
+                tbody.innerHTML = '';
+                data.usuarios.forEach(u => {
+                    tbody.innerHTML += `
+                        <tr>
+                            <td><strong>${u.psnId}</strong></td>
+                            <td>${u.correo}</td>
+                            <td>${u.consola || 'N/A'}</td>
+                            <td>
+                                <button onclick="eliminarUsuario('${u._id}')" class="boton boton-rojo" style="padding: 5px 10px; font-size: 0.8em;">❌</button>
+                            </td>
+                        </tr>
+                    `;
+                });
+            } catch (e) { console.error("Ruta de usuarios aún no creada o error de red."); }
+        }
+
+        document.getElementById('formUsuarios').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const psnId = document.getElementById('userPsnId').value;
+            const correo = document.getElementById('userCorreo').value;
+            const password = document.getElementById('userPassword').value;
+
+            if (password.length < 8) return mostrarAlerta("La contraseña debe tener mínimo 8 caracteres", true);
+
+            try {
+                const res = await fetch(`${API_URL}/usuarios`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ psnId, correo, password, consola: "Asignado por Admin" })
+                });
+                const data = await res.json();
+                if(data.success) {
+                    mostrarAlerta("Usuario creado correctamente");
+                    document.getElementById('formUsuarios').reset();
+                    cargarUsuarios();
+                } else {
+                    mostrarAlerta(data.message, true); // Muestra error si ya existe
+                }
+            } catch (e) { mostrarAlerta("Error al guardar usuario", true); }
+        });
+
+        async function eliminarUsuario(id) {
+            if(confirm("¿Seguro que deseas eliminar a este usuario? Se perderá su acceso.")) {
+                // Requiere ruta DELETE /api/usuarios/:id
+                await fetch(`${API_URL}/usuarios/${id}`, { method: 'DELETE' });
+                mostrarAlerta("Usuario eliminado");
+                cargarUsuarios();
+            }
+        }
+
+        // Carga inicial
+        cargarJuegos();
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

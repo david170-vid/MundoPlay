@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>PlayStation | Registro PSN</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <header class="header-principal">
+        <div class="titulo-contenedor">
+            <img src="img/ps_logo.png" alt="Logo PS">
+            <h1>PLAYSTATION UNIVERSE</h1>
+        </div>
+        <nav class="navegacion-principal">
+            <ul>
+                <li><a href="index.html">INICIO</a></li>
+                <li><a href="historia.html">HISTORIA</a></li>
+                <li><a href="tabla.html">TABLA & QUIZ</a></li>
+                <li><a href="formulario.html" class="activo">REGISTRO</a></li>
+                <li><a href="multimedia.html">MULTIMEDIA</a></li>
+                <li><a href="crud-completo.html">CRUD</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 30px;">
+            
+            <!-- FORMULARIO DE REGISTRO -->
+            <main class="seccion-principal">
+                <h2 style="text-align: center;">Crear Cuenta Nueva</h2>
+                <p style="text-align: center; margin-bottom: 20px;">Regístrate para comentar en el muro y guardar tus puntuaciones.</p>
+                
+                <div id="registroError" class="alerta-error"></div>
+                <div id="registroExito" class="alerta-exito"></div>
+
+                <form id="formRegistro" class="formulario-lista">
+                    <div class="grupo-campo">
+                        <label>PSN ID (Usuario Único):</label>
+                        <input type="text" id="regPsnId" required placeholder="Ej: Kratos_Killer">
+                    </div>
+                    <div class="grupo-campo">
+                        <label>Correo Electrónico:</label>
+                        <input type="email" id="regCorreo" required placeholder="tu@correo.com">
+                    </div>
+                    <div class="grupo-campo">
+                        <label>Contraseña:</label>
+                        <input type="password" id="regPassword" required placeholder="Mínimo 8 caracteres">
+                        <small style="color: #ccc; font-size: 0.8em;">* La contraseña debe tener al menos 8 caracteres.</small>
+                    </div>
+                    <div class="grupo-campo">
+                        <label>Consola Principal:</label>
+                        <select id="regConsola">
+                            <option>PS4</option>
+                            <option>PS5 Edición Digital</option>
+                            <option>PS5 Edición Disco (Fat/Slim)</option>
+                            <option>PS5 Pro</option>
+                        </select>
+                    </div>
+                    <div class="grupo-campo">
+                        <label>Juego Favorito:</label>
+                        <input type="text" id="regJuego" placeholder="Ej: God of War Ragnarök">
+                    </div>
+                    <button type="submit" class="boton" style="width: 100%; font-size: 1.1em;">Registrarse</button>
+                </form>
+            </main>
+
+            <!-- FORMULARIO DE LOGIN -->
+            <aside class="seccion-principal">
+                <h2 style="text-align: center;">Iniciar Sesión</h2>
+                <p style="text-align: center; margin-bottom: 20px;">¿Ya tienes cuenta? Ingresa aquí.</p>
+
+                <div id="loginError" class="alerta-error"></div>
+
+                <form id="formLogin" class="formulario-lista">
+                    <div class="grupo-campo">
+                        <label>PSN ID:</label>
+                        <input type="text" id="loginPsnId" required placeholder="Tu usuario">
+                    </div>
+                    <div class="grupo-campo">
+                        <label>Contraseña:</label>
+                        <input type="password" id="loginPassword" required placeholder="Tu contraseña">
+                    </div>
+                    <button type="submit" class="boton" style="width: 100%; font-size: 1.1em; background: #28a745;">Ingresar</button>
+                </form>
+            </aside>
+
+        </div>
+    </div>
+
+    <footer class="footer-principal">
+        <p>🎓 Creado y desarrollado por Joal David Sánchez Vidal.</p>
+        <p>Comunidad para Gamers de PlayStation - 2026</p>
+    </footer>
+
+    <button id="btnModoOscuro" class="boton-modo">🌙</button>
+    <button id="btnVolverArriba">⬆️</button>
+    <script src="script.js"></script>
+</body>
+</html>
