@@ -8,7 +8,7 @@
 <body>
     <header class="header-principal">
         <div class="titulo-contenedor">
-            <img src="img/ps_logo.png" alt="Logo PS">
+            <img src="/imagenes/ps_logo.png" alt="Logo PS">
             <h1>PLAYSTATION UNIVERSE</h1>
         </div>
         <nav class="navegacion-principal">
@@ -26,7 +26,6 @@
     <div class="container">
         <main class="seccion-principal">
             
-            <!-- INFORMACIÓN DEL PROYECTO ESCOLAR -->
             <section style="background: rgba(0, 162, 255, 0.1); padding: 20px; border-radius: 10px; border-left: 5px solid #00a2ff; margin-bottom: 30px;">
                 <h2 style="margin-bottom: 5px;">🎮 Sobre este Proyecto Escolar</h2>
                 <p>Esta página fue creada como un <strong>proyecto académico</strong> pensado especialmente para los amantes de los videojuegos y fanáticos de PlayStation. Nuestro objetivo es formar una <strong>comunidad unida</strong> donde podamos compartir experiencias, ayudarnos con trucos y celebrar nuestra pasión por el gaming.</p>
@@ -41,50 +40,50 @@
 
             <p>Descubre el poder de las consolas de próxima generación. Ya sea que vengas de una PS4 o estés listo para dar el salto, el ecosistema de Sony tiene aventuras épicas listas para ti.</p>
 
-            <h2>El juego no tiene límites</h2>
-            <nav style="margin-bottom: 20px;">
-                <strong>Navegación Interna:</strong>
-                <a href="#descargas" style="color: #00a2ff; margin: 0 10px;">Manuales</a>
-                <a href="#comunidad" style="color: #00a2ff; margin: 0 10px;">Comunidad</a>
-            </nav>
-
-            <p>Descubre el poder de las consolas de próxima generación. Ya sea que vengas de una PS4 o estés listo para dar el salto, el ecosistema de Sony tiene aventuras épicas listas para ti.</p>
-
             <section class="carrusel-contenedor" style="position: relative; max-width: 800px; margin: 20px auto; overflow: hidden; border-radius: 15px; border: 2px solid #00a2ff;">
                 <div class="carrusel-slides" style="display: flex; transition: transform 0.5s ease-in-out;">
-                    <img src="../images/gow.jpg" style="width: 100%; flex-shrink: 0;" alt="Slide 1">
-                    <img src="../images/spiderman.jpg" style="width: 100%; flex-shrink: 0;" alt="Slide 2">
-                    <img src="../images/tlou.jpg" style="width: 100%; flex-shrink: 0;" alt="Slide 3">
+                    <img src="/imagenes/gow.jpg" style="width: 100%; flex-shrink: 0;" alt="Slide 1">
+                    <img src="/imagenes/spiderman.jpg" style="width: 100%; flex-shrink: 0;" alt="Slide 2">
+                    <img src="/imagenes/tlou.jpg" style="width: 100%; flex-shrink: 0;" alt="Slide 3">
                 </div>
                 <button id="prevSlide" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; font-size: 24px; cursor: pointer; border-radius: 50%; width: 40px; height: 40px;">❮</button>
                 <button id="nextSlide" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; font-size: 24px; cursor: pointer; border-radius: 50%; width: 40px; height: 40px;">❯</button>
             </section>
+
             <section id="descargas" style="margin-top: 30px;">
                 <h3>Manuales y Soporte Oficial</h3>
                 <p>Para configurar tu consola o buscar solución a problemas técnicos, visita el portal oficial de soporte de Sony:</p>
-                <a href="https://www.playstation.com/es-mx/support/hardware/" class="boton link-externo" style="margin-top: 10px;">🌐 Ir a Soporte Oficial PlayStation</a>
-            </section>
-            
-            <section id="descargas" style="margin-top: 30px;">
-                <h3>Manuales y Soporte Oficial</h3>
-                <p>Para configurar tu consola o buscar solución a problemas técnicos, visita el portal oficial de soporte de Sony:</p>
-                <!-- Enlace externo con advertencia -->
                 <a href="https://www.playstation.com/es-mx/support/hardware/" class="boton link-externo" style="margin-top: 10px;">🌐 Ir a Soporte Oficial PlayStation</a>
             </section>
 
             <section id="comunidad" style="margin-top: 40px;">
                 <h3>Muro de la Comunidad</h3>
-                <p style="margin-bottom: 10px; font-size: 0.9em; color: #ccc;">¡Deja un consejo o dinos qué estás jugando para apoyar a otros gamers!</p>
-                <input type="text" id="nuevoComentario" placeholder="Ej: Para vencer a las Valquirias en GoW, usen ataques rúnicos...">
-                <button id="agregarComentario" class="boton">Comentar en el muro</button>
-                <ul id="listaComentarios" style="margin-top: 15px; list-style: none; padding: 15px; background: rgba(0,0,0,0.4); border-radius: 10px;">
-                    <li>¡Terminando el DLC de God of War Ragnarök! Está increíble. <button onclick="this.parentElement.remove()" style="color:red; background:none; border:none; cursor:pointer;">❌</button></li>
+                
+                <div id="areaPublicacion" style="display: none; background: rgba(0,0,0,0.4); padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+                    <p style="margin-bottom: 10px; font-weight: bold; color: #00a2ff;">Logueado como: <span id="usuarioActualDisplay"></span></p>
+                    <input type="text" id="nuevoComentario" placeholder="Comparte un truco o dinos qué juegas...">
+                    <button id="btnEnviarComentarioBD" class="boton">Publicar</button>
+                    <button id="btnCerrarSesion" class="boton boton-rojo" style="margin-left: 10px;">Cerrar Sesión</button>
+                </div>
+
+                <div id="mensajeInvitado" style="background: rgba(255,0,0,0.1); padding: 20px; border-radius: 10px; border-left: 5px solid #ff0000; margin-bottom: 20px;">
+                    <p>🔒 <strong>No estás registrado.</strong> Para poder comentar en el muro y guardar tus puntuaciones, necesitas crear una cuenta primero.</p>
+                    <a href="formulario.html" class="boton" style="margin-top: 10px;">Ir a Registrarme</a>
+                </div>
+
+                <h4>Últimos Comentarios:</h4>
+                <ul id="listaComentariosBD" style="margin-top: 15px; list-style: none; padding: 15px; background: rgba(0,0,0,0.2); border-radius: 10px; min-height: 100px;">
+                    <li style="text-align: center; color: #ccc;">Cargando comentarios...</li>
                 </ul>
+            </section>
+            
+            <section class="likes-container" style="text-align: center; margin-top: 40px; padding: 20px; background: rgba(0,0,0,0.5); border-radius: 10px; border: 1px solid rgba(255,255,255,0.2);">
+                <button id="btnMeGusta" class="boton" style="font-size: 1.2em; transition: transform 0.2s;">❤️ Me gusta esta página</button>
+                <p style="margin-top: 15px; font-size: 1.2em;">Total de likes: <span id="contadorLike" style="font-weight: bold; color: #00a2ff;">0</span></p>
             </section>
         </main>
     </div>
 
-    <!-- FOOTER AÑADIDO -->
     <footer class="footer-principal">
         <p>🎓 Creado y desarrollado por Joal David Sánchez Vidal.</p>
         <p>Comunidad para Gamers de PlayStation - 2026</p>
