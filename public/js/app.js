@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3000/api';
+const API_URL = '/api';
 
 document.addEventListener('DOMContentLoaded', () => {
     // ==================== 1. MODO OSCURO ====================
@@ -271,4 +271,18 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => btnLike.style.transform = 'scale(1)', 150);
         });
     }
+    
 });
+// CARRUSEL
+    let indexCarrusel = 0;
+    const slides = document.querySelector('.carrusel-slides');
+    const totalSlides = document.querySelectorAll('.carrusel-slides img').length;
+
+    document.getElementById('nextSlide')?.addEventListener('click', () => {
+        indexCarrusel = (indexCarrusel + 1) % totalSlides;
+        slides.style.transform = `translateX(-${indexCarrusel * 100}%)`;
+    });
+    document.getElementById('prevSlide')?.addEventListener('click', () => {
+        indexCarrusel = (indexCarrusel - 1 + totalSlides) % totalSlides;
+        slides.style.transform = `translateX(-${indexCarrusel * 100}%)`;
+    });

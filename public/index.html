@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>PlayStation | Inicio</title>
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
     <header class="header-principal">
@@ -41,6 +41,30 @@
 
             <p>Descubre el poder de las consolas de próxima generación. Ya sea que vengas de una PS4 o estés listo para dar el salto, el ecosistema de Sony tiene aventuras épicas listas para ti.</p>
 
+            <h2>El juego no tiene límites</h2>
+            <nav style="margin-bottom: 20px;">
+                <strong>Navegación Interna:</strong>
+                <a href="#descargas" style="color: #00a2ff; margin: 0 10px;">Manuales</a>
+                <a href="#comunidad" style="color: #00a2ff; margin: 0 10px;">Comunidad</a>
+            </nav>
+
+            <p>Descubre el poder de las consolas de próxima generación. Ya sea que vengas de una PS4 o estés listo para dar el salto, el ecosistema de Sony tiene aventuras épicas listas para ti.</p>
+
+            <section class="carrusel-contenedor" style="position: relative; max-width: 800px; margin: 20px auto; overflow: hidden; border-radius: 15px; border: 2px solid #00a2ff;">
+                <div class="carrusel-slides" style="display: flex; transition: transform 0.5s ease-in-out;">
+                    <img src="../images/gow.jpg" style="width: 100%; flex-shrink: 0;" alt="Slide 1">
+                    <img src="../images/spiderman.jpg" style="width: 100%; flex-shrink: 0;" alt="Slide 2">
+                    <img src="../images/tlou.jpg" style="width: 100%; flex-shrink: 0;" alt="Slide 3">
+                </div>
+                <button id="prevSlide" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; font-size: 24px; cursor: pointer; border-radius: 50%; width: 40px; height: 40px;">❮</button>
+                <button id="nextSlide" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; font-size: 24px; cursor: pointer; border-radius: 50%; width: 40px; height: 40px;">❯</button>
+            </section>
+            <section id="descargas" style="margin-top: 30px;">
+                <h3>Manuales y Soporte Oficial</h3>
+                <p>Para configurar tu consola o buscar solución a problemas técnicos, visita el portal oficial de soporte de Sony:</p>
+                <a href="https://www.playstation.com/es-mx/support/hardware/" class="boton link-externo" style="margin-top: 10px;">🌐 Ir a Soporte Oficial PlayStation</a>
+            </section>
+            
             <section id="descargas" style="margin-top: 30px;">
                 <h3>Manuales y Soporte Oficial</h3>
                 <p>Para configurar tu consola o buscar solución a problemas técnicos, visita el portal oficial de soporte de Sony:</p>
@@ -68,6 +92,6 @@
 
     <button id="btnModoOscuro" class="boton-modo">🌙</button>
     <button id="btnVolverArriba">⬆️</button>
-    <script src="script.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>

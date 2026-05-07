@@ -1,7 +1,6 @@
 const { MongoClient } = require('mongodb');
 
-// Tu cadena de conexión real
-const uri = 'mongodb://sanvid:1122334455667788991010@ac-tpkfpyu-shard-00-00.3lvwckj.mongodb.net:27017,ac-tpkfpyu-shard-00-01.3lvwckj.mongodb.net:27017,ac-tpkfpyu-shard-00-02.3lvwckj.mongodb.net:27017/?ssl=true&replicaSet=atlas-ybwxgh-shard-0&authSource=admin&appName=Cluster0';
+const uri = process.env.MONGO_URI;
 
 const client = new MongoClient(uri);
 let db;

@@ -1,9 +1,16 @@
+require('dotenv').config();
+// ... después sigue el resto de tus constantes como express, cors, etc.
 const express = require('express');
 const cors = require('cors');
 const { conectarDB, getDB } = require('./database');
 const { ObjectId } = require('mongodb');
 
 const app = express();
+const path = require('path');
+
+// Servir archivos estáticos (Frontend)
+app.use(express.static(path.join(__dirname, '../public')));
+app.use('/images', express.static(path.join(__dirname, '../images')));
 const PORT = 3000;
 
 app.use(express.json());
@@ -155,5 +162,6 @@ async function iniciarServidor() {
     app.listen(PORT, () => {
         console.log(`🚀 Servidor PS en http://localhost:${PORT}`);
     });
+    
 }
 iniciarServidor();
